@@ -25,19 +25,19 @@ class Sanction extends Model
 
     public function student():BelongsTo{
 
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(Student::class, 'student_id', 'student_id');
         
     }
 
     public function securityGuard():BelongsTo{
 
-        return $this->belongsTo(SecurityGuard::class);
+        return $this->belongsTo(SecurityGuard::class, 'guard_id', 'guard_id');
 
     }
 
-    public function fine():HasOne{
+    public function fine():BelongsTo{
 
-        return $this->hasOne(Fine::class);
+        return $this->belongsTo(Fine::class,'fine_id');
 
     }
 }

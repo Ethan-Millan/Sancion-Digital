@@ -16,9 +16,9 @@ class Fine extends Model
         'service_time'
     ];
 
-    public function sanctions():BelongsTo{
+    public function sanctions():HasMany{
 
-        return $this->belongsTo(Sanction::class);
+        return $this->hasMany(Sanction::class,'fine_id', 'id');
 
     }
 }

@@ -23,7 +23,10 @@ class SecurityGuard extends Model
 
     public function sanctions():HasMany{
 
-        return $this->hasMany(Sanction::class);
+        return $this->hasMany(Sanction::class, 'guard_id', 'guard_id');
 
+    }
+    public function alerts():HasMany{
+        return $this->hasMany(Alert::class, 'guard_id', 'guard_id');
     }
 }
